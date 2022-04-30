@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Light color scheme-->
+    <color name="blue">#FF055CAD</color>
+    <color name="blue2">#FF2588E6</color>
+    <color name="blue_light">#FF89C4FA</color>
+    <color name="cream">#FFc4b8b7</color>
+
+    <!-- Dark Color Scheme-->
+    <color name="dark_blue">#FF011324</color>
+    <color name="dark_blue2">#FF022b54</color>
+    <color name="faded_blue">#FF526e87</color>
+    <color name="grey_dark">#FF728394</color>
+    <color name="grey_light">#FF9faebd</color>
 </resources>

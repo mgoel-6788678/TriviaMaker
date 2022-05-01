@@ -3,5 +3,6 @@
     <string name="startGame">Start Game</string>
     <string name="trivia">Random Facts</string>
     <string name="defaultTextView">Default Text View</string>
-    <string name="NextFact">Next Fact</string>
+    <string name="NextFact">Next</string>
+    <string name="shareFact">Share</string>
 </resources>

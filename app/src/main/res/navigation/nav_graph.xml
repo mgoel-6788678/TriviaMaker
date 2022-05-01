@@ -26,5 +26,16 @@
         android:id="@+id/gameFragment"
         android:name="com.example.triviamaker.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_actualGameFragment"
+            app:destination="@id/actualGameFragment"
+            app:popUpTo="@id/driverFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualGameFragment"
+        android:name="com.example.triviamaker.ActualGameFragment"
+        android:label="fragment_actual_game"
+        tools:layout="@layout/fragment_actual_game" />
 </navigation>

@@ -5,4 +5,54 @@
     <string name="defaultTextView">Default Text View</string>
     <string name="NextFact">Next</string>
     <string name="shareFact">Share</string>
+
+    <string name="parameterDeciderText">Choose Your Quiz</string>
+    <string name="category">Choose Category</string>
+    <string name="difficultyText">Choose Difficulty</string>
+    <string name="typeText">Choose Type</string>
+
+    <string name="submitButton">Start Quiz</string>
+
+    <string-array name="categoriesInSpinner">
+        <item>Any Category</item><!--0-->
+        <item>General Knowledge</item> <!--9-->
+        <item>Books</item><!--10-->
+        <item>Films</item><!--11-->
+        <item>Music</item><!--12-->
+        <item>Musicals and Theatres</item><!--13-->
+        <item>Television</item><!--14-->
+        <item>Video Games</item><!--15-->
+        <item>Board Games</item><!--16-->
+        <item>Science and Nature</item> <!--17-->
+        <item>Science and Computers</item> <!--18-->
+        <item>Mathematics</item> <!--19-->
+        <item>Mythology</item> <!--20-->
+        <item>Sports</item><!--21-->
+        <item>Geography</item><!--22-->
+        <item>History</item><!--23-->
+        <item>Politics</item><!--24-->
+        <item>Art</item><!--25-->
+        <item>Celebrities</item><!--26-->
+        <item>Animals</item><!--27-->
+        <item>Vehicles</item><!--28-->
+        <item>Comics</item><!--29-->
+        <item>Gadgets</item><!--30-->
+        <item>Japanese Anime and Manga</item><!--31-->
+        <item>Cartoon and Animations</item><!--32-->
+    </string-array>
+
+    <string-array name="difficultyArray">
+        <item>Any Difficulty</item>
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string-array name="typeQuestion">
+        <item>MCQ</item>
+        <item>True/False</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

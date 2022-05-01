@@ -28,14 +28,14 @@ class DriverFragment : Fragment() {
 
         binding.triviaButton.setOnClickListener {
             // navigate to trivia fragment
-            val triviaActionId: Int = resources.getIdentifier("action_driverFragment_to_triviaFragment", "id", this.requireContext().packageName)
-            it.findNavController().navigate(triviaActionId)
+            // val triviaActionId: Int = resources.getIdentifier("action_driverFragment_to_triviaFragment", "id", this.requireContext().packageName)
+            it.findNavController().navigate(R.id.action_driverFragment_to_triviaFragment)
         }
 
         binding.gameButton.setOnClickListener {
             // navigate to game fragment
-            val actionid: Int = resources.getIdentifier("action_driverFragment_to_gameFragment", "id", this.requireContext().packageName)
-            it.findNavController().navigate(actionid)
+            // val actionid: Int = resources.getIdentifier("action_driverFragment_to_gameFragment", "id", this.requireContext().packageName)
+            it.findNavController().navigate(R.id.action_driverFragment_to_gameFragment)
         }
     }
 

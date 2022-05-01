@@ -3,12 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".GameFragment"
+    android:background="@color/blue2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/defaultTextView" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/parameterDeciderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/parameterDeciderText"
+            android:textSize="42sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="30sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/categorySpinnerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            app:layout_constraintBottom_toTopOf="@id/categorySpinner"
+            app:layout_constraintLeft_toLeftOf="@id/categorySpinner"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"/>
+
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:minHeight="48dp"
+            app:layout_constraintLeft_toLeftOf="@id/parameterDeciderTextView"
+            app:layout_constraintRight_toRightOf="@id/parameterDeciderTextView"
+            app:layout_constraintTop_toBottomOf="@id/parameterDeciderTextView" />
+
+        <TextView
+            android:id="@+id/difficultySpinnerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/difficultyText"
+            app:layout_constraintBottom_toTopOf="@id/difficultySpinner"
+            app:layout_constraintLeft_toLeftOf="@id/difficultySpinner"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"/>
+
+        <Spinner
+            android:id="@+id/difficultySpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:minHeight="48dp"
+            app:layout_constraintLeft_toLeftOf="@id/parameterDeciderTextView"
+            app:layout_constraintRight_toRightOf="@id/parameterDeciderTextView"
+            app:layout_constraintTop_toBottomOf="@id/categorySpinner" />
+
+        <TextView
+            android:id="@+id/typeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/typeText"
+            app:layout_constraintBottom_toTopOf="@id/typeSpinner"
+            app:layout_constraintLeft_toLeftOf="@id/typeSpinner"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"/>
+
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:minHeight="48dp"
+            app:layout_constraintLeft_toLeftOf="@id/parameterDeciderTextView"
+            app:layout_constraintRight_toRightOf="@id/parameterDeciderTextView"
+            app:layout_constraintTop_toBottomOf="@id/difficultySpinner" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submitButton"
+            android:layout_marginTop="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/typeSpinner"
+            app:layout_constraintRight_toRightOf="@id/typeSpinner"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

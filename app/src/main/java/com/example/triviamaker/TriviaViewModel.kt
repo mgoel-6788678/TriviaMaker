@@ -17,7 +17,7 @@ class TriviaViewModel(application: Application) : AndroidViewModel(application) 
 
     fun makeRequest(textView: TextView, progress: ProgressBar) {
         progress.visibility = View.VISIBLE
-        val queue = Volley.newRequestQueue(getApplication())
+        // val queue = Volley.newRequestQueue(getApplication())
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, triviaModel.getUrl(), null,
             { response ->  content = response.getString("text")
@@ -26,7 +26,7 @@ class TriviaViewModel(application: Application) : AndroidViewModel(application) 
             },
             { Toast.makeText(getApplication(), "Something went wrong with trivia request", Toast.LENGTH_LONG).show()})
 
-        queue.add(jsonObjectRequest)
+        VolleySingleton.getInstance(getApplication()).addToRequestQueue(jsonObjectRequest)
     }
 
 }

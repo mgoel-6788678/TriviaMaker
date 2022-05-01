@@ -41,6 +41,7 @@ class TriviaFragment : Fragment() {
 
         binding.shareFact.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_TEXT, tModel.content)
             val chooser = Intent.createChooser(intent, "Fun Fact")
             startActivity(chooser)

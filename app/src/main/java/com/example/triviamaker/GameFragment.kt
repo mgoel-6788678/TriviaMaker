@@ -1,5 +1,6 @@
 package com.example.triviamaker
 
+import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,20 +11,22 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.triviamaker.databinding.FragmentGameBinding
+import kotlin.collections.MutableMap as MutableMap
 
 class GameFragment : Fragment() {
 
     private var _binding: FragmentGameBinding?= null
     private val binding get() = _binding!!
 
-    private var chosenCategory: String? = null
-    private var chosenCategoryPosition: Int? = null
+    private lateinit var gameViewModel: GameViewModel
 
-    private var chosenDifficulty: String? = null
-    private var chosenDifficultyPosition: Int? = null
+    private lateinit var mutableParameters : MutableMap<String, List<String>>
 
-    private var chosenType: String? = null
-    private var chosenTypePosition: Int? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mutableParameters = mutableMapOf()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +41,15 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        gameViewModel = GameViewModel(this.requireContext().applicationContext as Application)
+
         binding.submitButton.setOnClickListener {
             val navController = it.findNavController()
+            // send the parameters to game view model which will make the request and change it in the Actual game fragment
+            // then navigate to the actual game fragment, which will have everything already setup
+
+            gameViewModel.makeRequest(mutableParameters)
+
             Toast.makeText(this.requireContext(), "Submit button clicked", Toast.LENGTH_LONG).show()
             navController.navigate(R.id.action_gameFragment_to_actualGameFragment)
         }
@@ -51,13 +61,14 @@ class GameFragment : Fragment() {
 
         binding.categorySpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                chosenCategory = parent?.getItemAtPosition(pos).toString()
-                chosenCategoryPosition = pos
+                val chosenCategory = parent?.getItemAtPosition(pos).toString()
+                val group = listOf(chosenCategory, pos.toString())
+                mutableParameters["category"] = group
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                chosenCategory = "any"
-                chosenCategoryPosition = 0
+                val chosenCategory = "any"
+                mutableParameters["category"] = listOf(chosenCategory, "0")
             }
         }
 
@@ -68,13 +79,13 @@ class GameFragment : Fragment() {
 
         binding.difficultySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                chosenDifficulty = p0?.getItemAtPosition(p2).toString()
-                chosenDifficultyPosition =p2
+                val chosenDifficulty = p0?.getItemAtPosition(p2).toString()
+                mutableParameters["difficulty"] = listOf(chosenDifficulty, p2.toString())
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                chosenDifficulty = p0?.getItemAtPosition(0).toString()
-                chosenDifficultyPosition = 0
+                val chosenDifficulty = p0?.getItemAtPosition(0).toString()
+                mutableParameters["difficulty"] = listOf(chosenDifficulty, "0")
             }
         }
 
@@ -85,16 +96,14 @@ class GameFragment : Fragment() {
 
         binding.typeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                chosenType = p0?.getItemAtPosition(p2).toString()
-                chosenTypePosition = p2
+                val chosenType = p0?.getItemAtPosition(p2).toString()
+                mutableParameters["type"] = listOf(chosenType, p2.toString())
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                chosenType=p0?.getItemAtPosition(0).toString()
-                chosenTypePosition = 0
+                val chosenType=p0?.getItemAtPosition(0).toString()
+                mutableParameters["type"] = listOf(chosenType, "0")
             }
         }
     }
-
-    // only for the category spinner
 }

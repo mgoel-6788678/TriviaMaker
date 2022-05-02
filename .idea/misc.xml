@@ -11,10 +11,12 @@
         <entry key="app/src/main/res/layout/fragment_driver.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/fragment_game.xml" value="0.2873779739158741" />
         <entry key="app/src/main/res/layout/fragment_trivia.xml" value="0.162506103515625" />
+        <entry key="app/src/main/res/layout/item.xml" value="0.25764160156250004" />
+        <entry key="app/src/main/res/layout/item_for_recyclerview.xml" value="0.17300724637681159" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -35,6 +35,8 @@ class ListOfOptionsAdapter(private val activity: Activity) : RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-        return gameViewModel.incorrect!!.size + 1
+//        return gameViewModel.incorrect!!.size + 1
+        if (gameViewModel.incorrect != null) return gameViewModel.incorrect!!.size + 1
+        return 1
     }
 }

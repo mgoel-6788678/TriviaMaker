@@ -11,12 +11,12 @@ class GameModel {
         val chosenDifficultyList: List<String>? = mutableParams["difficulty"]
         val chosenTypeList: List<String>? = mutableParams["type"]
 
-        if (!chosenCategoryList?.get(0).equals("any")) {
+        if (!chosenCategoryList?.get(0).equals("Any Category")) {
             Log.d("chosenCategory", "Here's what we get: $chosenCategoryList")
             url += "&category="+ (chosenCategoryList?.get(1)?.toInt()?.plus(9)).toString()
         }
 
-        if (!chosenDifficultyList?.get(0).equals("any")) {
+        if (!chosenDifficultyList?.get(0).equals("Any Difficulty")) {
             Log.d("chosenDifficulty", "Here's what we get: $chosenDifficultyList")
             url += "&difficulty="+chosenDifficultyList?.get(0)
         }

@@ -1,6 +1,7 @@
 package com.example.triviamaker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,7 @@ class ActualGameFragment : Fragment() {
         // gameViewModel = GameViewModel(this.requireContext().applicationContext as Application)
         gameViewModel = ViewModelProvider(this,
         ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application))[GameViewModel::class.java]
+        gameViewModel.getInfoAboutActualGameFragment(this)
         return binding.root
     }
 
@@ -33,7 +35,13 @@ class ActualGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.optionsList.layoutManager = LinearLayoutManager(this.requireContext())
         binding.optionsList.adapter = ListOfOptionsAdapter(this.requireActivity())
+    }
 
-         binding.question.text = gameViewModel.question
+    fun initializeStuff() {
+        if (gameViewModel.question != null) {
+            gameViewModel.question!!.also { binding.question.text = it }
+        }else {
+            Log.d("error", "question still null")
+        }
     }
 }

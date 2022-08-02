@@ -57,5 +57,6 @@
     <string name="bpart">B)</string>
     <string name="cpart">C)</string>
     <string name="dpart">D)</string>
+    <string name="defaultListText">Default list item</string>
 
 </resources>
